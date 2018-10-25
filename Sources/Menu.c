@@ -11,3 +11,6 @@ void interativo(/* arguments */) {
   printf("1.Arquivo\n");
   printf("2.Interativo\n");
 }
+void separador(/* arguments */) {
+  printf("====================================================================================================\n");
+}

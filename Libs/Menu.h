@@ -3,4 +3,5 @@
 void cabecalho();
 void rodape();
 void interativo();
+void separador();
 #endif
