@@ -11,4 +11,4 @@ run_c:
 	./EXEC_CLANG
 
 rm:
-	rm EXEC_GCC && rm EXEC_CLANG
+	rm EXEC_*
