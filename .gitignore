@@ -1,4 +1,6 @@
 # Executables
-EXEC_*
+EXEC*
 *.exe
 *.out
+ # Precompiled Headers
+ *.gch
