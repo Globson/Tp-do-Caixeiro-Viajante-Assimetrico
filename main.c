@@ -21,7 +21,8 @@ int main(int argc, char const *argv[]) {
   //Diagonal principal com 0
   //a = rand() % 10;
   //Soma dos digitos das matriculas dos integrantes do grupo
-  printf("Entre com as 3 matriculas\n");
+  //printf("Entre com as 3 matriculas\n");
+  separador();
   int Matricula1,Matricula2,Matricula3,SUMMatricula;
   //scanf("%d",&Matricula1 );
   Matricula1 = rand()%3600;
@@ -50,9 +51,15 @@ int main(int argc, char const *argv[]) {
   printf("RestoX - > %d\n", RestoX);
   separador();
 
-  int v[TAM-1];
-  for (size_t i = 0; i < TAM-1; i++) {
-    v[i]=i;
+  int v[TAM],aux = 0;
+  for (size_t i = 0; i < TAM; i++) {
+    if (i==RestoX) {
+      aux++;
+      v[i]=aux;
+    }else{
+      v[i]=aux;
+    }
+    aux++;
   }
   int tam_v = sizeof(v) / sizeof(int);
 
