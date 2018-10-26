@@ -21,9 +21,6 @@ int main(int argc, char const *argv[]) {
   int TAM,i,j;
   printf("Entre com o numero de cidades\n");
   scanf("%d", &TAM );
-  if (TAM == 0)
-      exit(1);
-
   int Matriz[TAM][TAM];
   /*
   Sao TAM cidades que fazem conexao com TAM-1 cidades
@@ -34,18 +31,24 @@ int main(int argc, char const *argv[]) {
     for ( j = 0; j < TAM; j++)
       Matriz[i][j]=(i == j ? 0 : 1+(rand() % 100));//Diagonal principal com 0
   separador();
+//Print pra saber se funciona e verificar as distancias
   printf("Matriz %d por %d\n",TAM,TAM );
   for (size_t i = 0; i < TAM; i++) {
     for (size_t j = 0; j < TAM; j++)
       printf("  %d",Matriz[i][j] );
     printf("\n");
   }
+  //Primeira matriz,que e apenas a distanticas entre as ciadades
+  //====================================================================================
   separador();
   int RestoX = MatriculaRandomica(TAM-1);
   printf("RestoX - > %d\n", RestoX);
+  //Qual cidade ira iniciar
+  //====================================================================================
   separador();
-  int FatTAM=Fatorial(TAM);
-  int VetorAux[TAM-1],aux = 0,VetorPermutado[FatTAM];
+
+  separador();
+  int VetorAux[TAM-1],aux = 0;
   for (size_t i = 0; i < TAM-1; i++) {
     if (i==RestoX) {
       aux++;
@@ -55,14 +58,26 @@ int main(int argc, char const *argv[]) {
     }
     aux++;
   }
+  //Definindo um vetor de TAM-1 para fazer a permutacao de (TAM-1)! (Ja que esse e o numero de permutacoes possiveis)
+  //====================================================================================
+
   aux = 0;
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
+  int FatTAM=Fatorial(TAM-1);
+  printf("FatTAM - > %d\n",FatTAM );
+  int TAMaux = (TAM-1)*FatTAM;
+  printf("TAMaux - > %d\n",TAMaux );
+  int VetorPermutado[TAMaux];
   separador();
   printf("Vetor permutado\n");
   permuta(VetorAux, 0, tam_VetorAux - 1,VetorPermutado,&aux);
   separador();
   printf("Matriz Permutada passada por parametro:\n" );
-  for (size_t i = 0; i < FatTAM; i++) {
+  printf("sizeof(VetorPermutado) - > %lu\n",sizeof(VetorPermutado) );
+  printf("sizeof(VetorPermutado)/sizeof(int) - > %lu\n",sizeof(VetorPermutado)/sizeof(int) );
+  separador();
+
+  for (size_t i = 0; i < TAMaux; i++) {
     if (i%(TAM-1)!=0 || i==1) {
       printf("%d ",VetorPermutado[i]);
       /* code */
@@ -73,6 +88,11 @@ int main(int argc, char const *argv[]) {
   }
   printf("\n");
   separador();
+
+  //Aqui sera as comparacoes de tempos para saber qual e o mais rapido
+  for (size_t i = 0; i < TAMaux; i++) {
+
+  }
 //printf("aux -> %d\n",aux );
 /*Para toda permutacao se traca um caminho de RestoX por elas ate RestoX
 Ou seja,se a permutacao e 2403 e o restox e 5,o algoritimo constiste em
