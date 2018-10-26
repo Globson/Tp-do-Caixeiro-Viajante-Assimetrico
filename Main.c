@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
-#include <math.h>
 #include "Libs/Menu.h"
 #include "Libs/Permutacao.h"
 #include "Libs/Matricula.h"
