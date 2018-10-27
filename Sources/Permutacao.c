@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "../Libs/Permutacao.h"
 #include "../Libs/Menu.h"
+
 void VerificaRota(int vetor[],int QuantidadeCidades,int MatrizCusto[QuantidadeCidades][QuantidadeCidades],int Rotas[],int CidadeInicial){
    int Soma_Distancia = 0;
    //printf("%d\n", );
@@ -37,10 +38,6 @@ void permuta(int vetor[], int inf, int sup,int QuantidadeCidades,int MatrizCusto
   if(inf == sup)
   {
     VerificaRota(vetor,QuantidadeCidades,MatrizCusto,Rotas,CidadeInicial);
-    for(int i = 0; i <= sup; i++){
-      printf("%d ", vetor[i]);
-    }
-    printf("\n");
   }
   else
   {
