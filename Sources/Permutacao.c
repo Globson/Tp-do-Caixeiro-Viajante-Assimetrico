@@ -16,7 +16,6 @@ void permuta(int vetor[], int inf, int sup,int VetorPermutado[],int *aux)
     for(int i = 0; i <= sup; i++){
       VetorPermutado[aux2] = vetor[i];
       printf("%d ", vetor[i]);
-      //printf(" | aux ->%d / %d | ",*aux,aux2 );
       *aux+=1;
       aux2 = *aux;
     }
