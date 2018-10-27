@@ -30,13 +30,25 @@ void Interativo() {
   //====================================================================================
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
   separador();
-  printf("Vetor permutado\n");
+  printf("Possiveis Caminhos e Custos\n");
   permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial);
   separador();
-  printf("Custo - > %d\n",Rota[0] );
-  printf("de %d ate %d -> Custo %d\n",CidadeInicial,Rota[1],MatrizCusto[CidadeInicial][Rota[1]] );
-  for (size_t i = 2; i < QuantidadeCidades; i++) {
-    printf("de %d ate %d -> %d\n",Rota[i-1],Rota[i],MatrizCusto[Rota[i-1]][Rota[i]] );
+  printf("O Melhor caminho e: \n");
+  for (size_t i = 1; i < QuantidadeCidades; i++) {
+    printf("%d ",Rota[i] );
   }
-  printf("de %d ate %d -> Custo %d\n",Rota[QuantidadeCidades-1],CidadeInicial,MatrizCusto[Rota[QuantidadeCidades-1]][CidadeInicial] );
+
+  printf("\nCom o custo de: %d\n",Rota[0] );
+  separador();
+  printf("Deseja mostrar os custos individuais? \n1-Sim\n*-Nao\n");
+  int aux = 0;
+  scanf("%d",&aux);
+  if (aux==1) {
+    separador();
+    printf("de %d ate %d -> Custo %d\n",CidadeInicial,Rota[1],MatrizCusto[CidadeInicial][Rota[1]] );
+    for (size_t i = 2; i < QuantidadeCidades; i++) {
+      printf("de %d ate %d -> %d\n",Rota[i-1],Rota[i],MatrizCusto[Rota[i-1]][Rota[i]] );
+    }
+    printf("de %d ate %d -> Custo %d\n",Rota[QuantidadeCidades-1],CidadeInicial,MatrizCusto[Rota[QuantidadeCidades-1]][CidadeInicial] );
+  }
 }
