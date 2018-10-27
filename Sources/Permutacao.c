@@ -1,13 +1,20 @@
 #include <stdio.h>
 #include "../Libs/Permutacao.h"
-
+#include "../Libs/Menu.h"
 void VerificaRota(int vetor[],int QuantidadeCidades,int MatrizCusto[QuantidadeCidades][QuantidadeCidades],int Rotas[],int CidadeInicial){
    int Soma_Distancia = 0;
-   for (size_t i = 1; i < QuantidadeCidades-1; i++) {
+   //printf("%d\n", );
+   separador();
+   printf("%d -> %d -> ",CidadeInicial, vetor[0]);
+   for (size_t i = 1; i < QuantidadeCidades - 1 ; i++) {
      Soma_Distancia+=MatrizCusto[vetor[i-1]][vetor[i]];
+     printf("%d -> ", vetor[i] );
    }
+   printf("%d ",CidadeInicial);
    Soma_Distancia+=MatrizCusto[CidadeInicial][vetor[0]];
    Soma_Distancia+=MatrizCusto[vetor[QuantidadeCidades-2]][CidadeInicial];
+   printf("= %d\n",Soma_Distancia );
+
    if (Soma_Distancia < Rotas[0]) {
      Rotas[0] = Soma_Distancia;
      for (size_t i = 0; i < QuantidadeCidades-1; i++) {
@@ -15,7 +22,6 @@ void VerificaRota(int vetor[],int QuantidadeCidades,int MatrizCusto[QuantidadeCi
      }
    }
 }
-
 
 
 
