@@ -8,16 +8,13 @@ void troca(int vetor[], int i, int j)
   vetor[j] = aux;
 }
 
-void permuta(int vetor[], int inf, int sup,int VetorPermutado[],int *aux)
+void permuta(int vetor[], int inf, int sup)
 {
   if(inf == sup)
   {
-    int aux2 = *aux;
+
     for(int i = 0; i <= sup; i++){
-      VetorPermutado[aux2] = vetor[i];
       printf("%d ", vetor[i]);
-      *aux+=1;
-      aux2 = *aux;
     }
     printf("\n");
   }
@@ -26,7 +23,7 @@ void permuta(int vetor[], int inf, int sup,int VetorPermutado[],int *aux)
     for(int i = inf; i <= sup; i++)
     {
       troca(vetor, inf, i);
-      permuta(vetor, inf + 1, sup,VetorPermutado,aux);
+      permuta(vetor, inf + 1, sup);
       troca(vetor, inf, i); // backtracking
     }
   }
