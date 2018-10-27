@@ -11,27 +11,16 @@ int Fatorial(int QuantidadeCidades){
   return fat;
 }
 int main(int argc, char const *argv[]) {
-  /*
-  if(strcmp(argv[1],"EasterEgg") == 1)
-    EasterEgg();
-  TODO:Ver isso com calma,ou nem colocar(Importacao de Lib desnecessaria)
-  */
   srand((unsigned)time(NULL));
   //interativo();
   int QuantidadeCidades,i,j;
   printf("Entre com o numero de cidades\n");
   scanf("%d", &QuantidadeCidades );
   int MatrizCusto[QuantidadeCidades][QuantidadeCidades];
-  /*
-  Sao QuantidadeCidades cidades que fazem conexao com QuantidadeCidades-1 cidades
-  Lembrando que a cidade tem custo 0 com si mesma
-  Lembrando que o custo de ij pode ser diferente pra ji
-  */
   for ( i = 0; i < QuantidadeCidades; i++)
     for ( j = 0; j < QuantidadeCidades; j++)
-      MatrizCusto[i][j]=(i == j ? 0 : 1+(rand() % 100));//Diagonal principal com 0
+      MatrizCusto[i][j]=(i == j ? 0 : 1+(rand() % 100));
   separador();
-//Print pra saber se funciona e verificar as distancias
   printf("MatrizCusto %d por %d\n",QuantidadeCidades,QuantidadeCidades );
   for (size_t i = 0; i < QuantidadeCidades; i++) {
     for (size_t j = 0; j < QuantidadeCidades; j++)
@@ -63,12 +52,15 @@ int main(int argc, char const *argv[]) {
 
   aux = 0;
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
-  printf("1\n");
   int Ocorrencias=Fatorial(QuantidadeCidades-1);
-  printf("2\n");
   int CaminhoVSOcorrencia = (QuantidadeCidades-1)*Ocorrencias;
   printf("%d\n",CaminhoVSOcorrencia );
   int VetorPermutado[CaminhoVSOcorrencia];//TODO:Fazer por outro metodo
+  separador();
+  printf("Vetor permutado\n");
+  permuta(VetorAux, 0,tam_VetorAux - 1);
+  separador();
+
   //Possivelmente fazer direto no algoritimo de Permutacao
   //Com isso da pra economizar memoria,mas vai ser extremamente chato e dificil
 
@@ -82,10 +74,6 @@ int main(int argc, char const *argv[]) {
   //====================================================================================
 
 
-  separador();
-  printf("Vetor permutado\n");
-  permuta(VetorAux, 0,tam_VetorAux - 1,VetorPermutado,&aux);
-  separador();
 
 
 
@@ -94,8 +82,7 @@ int main(int argc, char const *argv[]) {
 
 
 
-
-
+/*
   printf("Copia Vetor permutado\n");
   for (size_t i = 0; i < CaminhoVSOcorrencia; i++) {
     if (i%(QuantidadeCidades-1)!=0) {
@@ -119,7 +106,7 @@ int main(int argc, char const *argv[]) {
   separador();
 
   //Aqui sera as comparacoes de tempos para saber qual e o mais rapido
-  /*for (size_t i = 0; i < QuantidadeCidades-1; i++) {
+  for (size_t i = 0; i < QuantidadeCidades-1; i++) {
     printf("%d -> %d = %d\n",CidadeInicial,VetorPermutado[i],MatrizCusto[CidadeInicial][VetorPermutado[i]] );
   }*/
   /*int Caminho[QuantidadeCidades-1],Soma = 0,MelhorCaminho[QuantidadeCidades];
@@ -127,7 +114,7 @@ int main(int argc, char const *argv[]) {
   Caminho[0]=VetorPermutado[0];
   printf("%d -> %d -> %d\n",CidadeInicial,Caminho[0],MatrizCusto[CidadeInicial][Caminho[0]] );
 
-  /*
+
   for (size_t i = 1; i < QuantidadeCidades-3; i++) {
     Caminho[i] = VetorPermutado[i];
     printf("%d -> %d -> %d\n",Caminho[i],Caminho[i+1],MatrizCusto[Caminho[i]][Caminho[i+1]] );
