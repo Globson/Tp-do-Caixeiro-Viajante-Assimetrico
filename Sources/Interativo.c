@@ -42,5 +42,6 @@ void Interativo() {
   separador();
   printf("Tempo de Execucao => %.3lf ms.\n",tempo_exe);
   separador();
+  printf("\n");
 
 }

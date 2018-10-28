@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
   while(1){
   op = 0;
   separador();
-  printf("\t\t\t\t   Bem  vindo ao CVA\n");
+  printf("\t\t\t\t   Bem-vindo ao CVA\n");
   separador();
   printf("\n1 - Interativo->\n");
   printf("2 - Entrar com um arquivo->\n" );
