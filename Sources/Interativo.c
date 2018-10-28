@@ -5,13 +5,11 @@
 #include "../Libs/Permutacao.h"
 #include "../Libs/Matricula.h"
 #include "../Libs/Matriz.h"
-int Fatorial(int QuantidadeCidades){
-  int fat;
-  for(fat = 1; QuantidadeCidades > 1; QuantidadeCidades = QuantidadeCidades - 1)
-      fat = fat * QuantidadeCidades;
-  return fat;
-}
+#include <time.h>
+
 void Interativo() {
+  clock_t inicio, fim;
+  double tempo_exe;
   int QuantidadeCidades;
   printf("Entre com o numero de cidades\n");
   scanf("%d", &QuantidadeCidades );
@@ -23,32 +21,27 @@ void Interativo() {
   //====================================================================================
   int CidadeInicial = MatriculaRandomica(QuantidadeCidades);
   separador();
-  int VetorAux[QuantidadeCidades-1],Rota[QuantidadeCidades];
-  Rota[0] = 100*QuantidadeCidades;
+  int VetorAux[QuantidadeCidades-1],Rota[QuantidadeCidades-1],MelhorCaminho;
+  MelhorCaminho = 100*QuantidadeCidades;
   PreencherParaPermutacao(QuantidadeCidades,VetorAux,CidadeInicial);
+
   //Definindo um vetor de QuantidadeCidades-1 para fazer a permutacao de (QuantidadeCidades-1)! (Ja que esse e o numero de permutacoes possiveis)
   //====================================================================================
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
   separador();
   printf("Possiveis Caminhos e Custos\n");
-  permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial);
+  inicio = clock();//Inicio da contagem
+  permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
   separador();
   printf("O Melhor caminho e: \n");
-  for (size_t i = 1; i < QuantidadeCidades; i++) {
+  for (size_t i = 0; i < QuantidadeCidades-1; i++) {
     printf("%d ",Rota[i] );
   }
-
-  printf("\nCom o custo de: %d\n",Rota[0] );
+  printf("\nCom o custo de: %d\n",MelhorCaminho );
+  fim = clock();//Fim da contagem
+  tempo_exe = ((double) (fim - inicio) / (((double) CLOCKS_PER_SEC)));
   separador();
-  printf("Deseja mostrar os custos individuais? \n1-Sim\n*-Nao\n");
-  int aux = 0;
-  scanf("%d",&aux);
-  if (aux==1) {
-    separador();
-    printf("de %d ate %d -> Custo %d\n",CidadeInicial,Rota[1],MatrizCusto[CidadeInicial][Rota[1]] );
-    for (size_t i = 2; i < QuantidadeCidades; i++) {
-      printf("de %d ate %d -> %d\n",Rota[i-1],Rota[i],MatrizCusto[Rota[i-1]][Rota[i]] );
-    }
-    printf("de %d ate %d -> Custo %d\n",Rota[QuantidadeCidades-1],CidadeInicial,MatrizCusto[Rota[QuantidadeCidades-1]][CidadeInicial] );
-  }
+  printf("Tempo de Execucao => %.3lf ms.\n",tempo_exe);
+  separador();
+
 }
