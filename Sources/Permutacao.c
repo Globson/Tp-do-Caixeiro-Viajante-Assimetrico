@@ -10,7 +10,7 @@ void VerificaRota(int vetor[],int QuantidadeCidades,int MatrizCusto[QuantidadeCi
    Soma_Distancia+=MatrizCusto[CidadeInicial][vetor[0]];
    Soma_Distancia+=MatrizCusto[vetor[QuantidadeCidades-2]][CidadeInicial];
    printf("= %d\n",Soma_Distancia );
-   separador();
+   separador_fino();
 
    if (Soma_Distancia < *MelhorCaminho) {
     *MelhorCaminho = Soma_Distancia;

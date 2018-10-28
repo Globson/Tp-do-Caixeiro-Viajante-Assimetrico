@@ -9,9 +9,13 @@ int MatriculaRandomica(int N){
 }
 int LeituraMatriculas(int N){
   int Matricula1,Matricula2,Matricula3;
-  scanf("%d\n",&Matricula1 );
-  scanf("%d\n",&Matricula2 );
-  scanf("%d\n",&Matricula3 );
+  printf("\nEntre com a primeira matricula:");
+  scanf("%d",&Matricula1 );
+  printf("\nEntre com a segunda matricula:");
+  scanf("%d",&Matricula2 );
+  printf("\nEntre com a terceira matricula:");
+  scanf("%d",&Matricula3 );
+  printf("\n");
   return RetornaModN(Matricula1,Matricula2,Matricula3,N);
 }
 int RetornaModN(int Matricula1,int Matricula2,int Matricula3,int N){

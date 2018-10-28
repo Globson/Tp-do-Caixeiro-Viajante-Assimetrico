@@ -11,7 +11,7 @@ void Interativo() {
   clock_t inicio, fim;
   double tempo_exe;
   int QuantidadeCidades;
-  printf("Entre com o numero de cidades\n");
+  printf("Entre com o numero de cidades:");
   scanf("%d", &QuantidadeCidades );
   int MatrizCusto[QuantidadeCidades][QuantidadeCidades];
   separador();
@@ -19,8 +19,7 @@ void Interativo() {
   PrintCustos(QuantidadeCidades,MatrizCusto);
   //Primeira MatrizCusto,que e apenas a distanticas entre as ciadades
   //====================================================================================
-  int CidadeInicial = MatriculaRandomica(QuantidadeCidades);
-  separador();
+  int CidadeInicial = LeituraMatriculas(QuantidadeCidades);
   int VetorAux[QuantidadeCidades-1],Rota[QuantidadeCidades-1],MelhorCaminho;
   MelhorCaminho = 100*QuantidadeCidades;
   PreencherParaPermutacao(QuantidadeCidades,VetorAux,CidadeInicial);
@@ -29,10 +28,9 @@ void Interativo() {
   //====================================================================================
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
   separador();
-  printf("Possiveis Caminhos e Custos\n");
+  printf("Possiveis Caminhos e Custos:\n");
   inicio = clock();//Inicio da contagem
   permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
-  separador();
   printf("O Melhor caminho e: \n");
   for (size_t i = 0; i < QuantidadeCidades-1; i++) {
     printf("%d ",Rota[i] );
