@@ -31,7 +31,6 @@ void Arquivo(){
               if(i==j){MatrizCusto[i][j] = 0;}
               else{fscanf(f,"%d",&MatrizCusto[i][j]);}
             }
-          //TODO Preenchimento de matriz de custos de acordo com leitura de distancias de cidades pelo arquivo//
 
 
           PrintCustos(QuantidadeCidades,MatrizCusto);
@@ -55,6 +54,5 @@ void Arquivo(){
           separador();
 
 
-        }
-        fclose(f);
+          fclose(f);}
       }
