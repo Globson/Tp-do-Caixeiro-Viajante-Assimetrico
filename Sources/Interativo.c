@@ -29,9 +29,10 @@ void Interativo() {
   int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
   separador();
   printf("Possiveis Caminhos e Custos:\n");
+  separador_fino();
   inicio = clock();//Inicio da contagem
   permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
-  printf("O Melhor caminho e: \n");
+  printf("O Melhor caminho: \n");
   for (size_t i = 0; i < QuantidadeCidades-1; i++) {
     printf("%d ",Rota[i] );
   }

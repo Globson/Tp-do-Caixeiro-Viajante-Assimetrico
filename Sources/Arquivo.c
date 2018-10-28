@@ -40,10 +40,11 @@ void Arquivo(){
           PreencherParaPermutacao(QuantidadeCidades,VetorAux,CidadeInicial);
           int tam_VetorAux = sizeof(VetorAux) / sizeof(int);
           printf("Possiveis Caminhos e Custos:\n");
+          separador_fino();
           inicio = clock();
           permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
           separador();
-          printf("O Melhor caminho e: \n");
+          printf("O Melhor caminho: \n");
           for (size_t i = 1; i < QuantidadeCidades; i++) {
             printf("%d ",Rota[i] );}
           printf("\nCom o custo de: %d\n",Rota[0] );
