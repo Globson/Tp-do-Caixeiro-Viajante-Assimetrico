@@ -10,7 +10,7 @@ void PrintCustos(int QuantidadeCidades,int Matriz[QuantidadeCidades][QuantidadeC
   printf("Matriz de Custo %d por %d\n",QuantidadeCidades,QuantidadeCidades );
   for (size_t i = 0; i < QuantidadeCidades; i++) {
     for (size_t j = 0; j < QuantidadeCidades; j++)
-      printf(" %d ",Matriz[i][j] );
+      printf(" %.2d ",Matriz[i][j] );
       printf("\n");
   }
 }

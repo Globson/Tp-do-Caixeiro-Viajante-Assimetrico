@@ -40,7 +40,7 @@ void Interativo() {
   fim = clock();//Fim da contagem
   tempo_exe = ((double) (fim - inicio) / (((double) CLOCKS_PER_SEC)));
   separador();
-  printf("Tempo de Execucao => %.3lf ms.\n",tempo_exe);
+  printf("Tempo de Execucao => %.5lf ms.\n",tempo_exe);
   separador();
   printf("\n");
 
