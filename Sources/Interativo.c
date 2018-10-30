@@ -32,10 +32,13 @@ void Interativo() {
   separador_fino();
   inicio = clock();//Inicio da contagem
   permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
+  printf("Começando pela cidade: %d \n", CidadeInicial);
+  separador_fino();
   printf("O Melhor caminho: \n");
+  printf("%d ", CidadeInicial );
   for (size_t i = 0; i < QuantidadeCidades-1; i++) {
-    printf("%d ",Rota[i] );
-  }
+    printf("%d ",Rota[i] );}
+  printf("%d ", CidadeInicial );
   printf("\nCom o custo de: %d\n",MelhorCaminho );
   fim = clock();//Fim da contagem
   tempo_exe = ((double) (fim - inicio) / (((double) CLOCKS_PER_SEC)));

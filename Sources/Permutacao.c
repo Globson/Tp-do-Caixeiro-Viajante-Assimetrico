@@ -32,10 +32,10 @@ void troca(int vetor[], int i, int j)
 void permuta(int vetor[], int inf, int sup,int QuantidadeCidades,int MatrizCusto[QuantidadeCidades][QuantidadeCidades],int Rotas[QuantidadeCidades],int CidadeInicial,int *MelhorCaminho)
 {
   if(inf == sup)
-  {
+  { printf("%d ", CidadeInicial);
     for(int i = 0; i <= sup; i++){
         printf("%d ", vetor[i]);
-    }
+    }printf("%d ", CidadeInicial);
     VerificaRota(vetor,QuantidadeCidades,MatrizCusto,Rotas,CidadeInicial,MelhorCaminho);
   }
   else
