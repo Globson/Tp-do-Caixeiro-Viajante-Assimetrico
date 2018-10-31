@@ -1,4 +1,4 @@
-[](https://i.imgur.com/iVLNkTN.jpg)
+![](https://i.imgur.com/XDXUh3W.jpg)
 >Trabalho Prático II da disciplina de Algoritmos e Estruturas de Dados 1.
 
 
