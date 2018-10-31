@@ -32,14 +32,13 @@ git clone https://github.com/Globson/Tp-do-Caixeiro-Viajante-Assimetrico
 ```
 Compile ele
 ```
-cd TP-Aeroporto-AEDS
+
 make clang
 ./EXEC_CLANG
 ```
 
 Compilar pelo GCC
 ```
-cd TP-Aeroporto-AEDS
 make
 make run
 ```
