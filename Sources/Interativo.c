@@ -32,7 +32,7 @@ void Interativo() {
   separador_fino();
   inicio = clock();//Inicio da contagem
   permuta(VetorAux, 0,tam_VetorAux - 1,QuantidadeCidades,MatrizCusto,Rota,CidadeInicial,&MelhorCaminho);
-  printf("Começando pela cidade: %d \n", CidadeInicial);
+  printf("Iniciando pela cidade: %d \n", CidadeInicial);
   separador_fino();
   printf("O Melhor caminho: \n");
   printf("%d ", CidadeInicial );
